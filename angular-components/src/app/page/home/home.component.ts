@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Product } from 'src/app/model/product';
 
 @Component({
   selector: 'app-home',
@@ -7,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class HomeComponent {
   @Input() componentTitle: string = 'Product Manager';
+
+  products: Product[] = [
+    {id: 1, name: 'Iron', active: true, price: 22000},
+    {id: 2, name: 'Iron', active: true, price: 22000},
+    {id: 3, name: 'Iron', active: true, price: 22000},
+  ];
 }

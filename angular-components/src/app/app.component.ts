@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-components';
+
+  searchPhrase: string = '';
+
+  onSearchPhraseChange(phrase: string): void {
+    this.searchPhrase = phrase;
+    console.log(this.searchPhrase);
+  }
 }
