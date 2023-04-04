@@ -20,7 +20,7 @@
           <td>{{ user.bio }}</td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-info">
+              <button [routerLink]="['/', 'user', 'edit', user.id]" class="btn btn-info">
                 <i class="fa fa-edit"></i>
               </button>
               <button (click)="onDelete(user)" class="btn btn-danger">
