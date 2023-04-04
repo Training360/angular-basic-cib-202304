@@ -1,19 +1,16 @@
-import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { HttpBackend, HttpClient } from '@angular/common/http';
+import { Inject, inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class BaseHttpService<T> {
+export abstract class BaseHttpService<T> {
 
   apiUrl: string = environment.apiUrl;
 
-  entityName: string = '';
+  http: HttpClient = inject(HttpClient);
 
   constructor(
-    private http: HttpClient,
+    private entityName: string,
   ) { }
 
   getAll(): Observable<T[]> {
