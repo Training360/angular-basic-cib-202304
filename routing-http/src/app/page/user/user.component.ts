@@ -14,6 +14,12 @@ export class UserComponent {
 
   userList$: Observable<User[]> = this.userService.getAll();
 
+  onDelete(user: User): void {
+    this.userService.delete(user).subscribe(
+      () => this.userList$ = this.userService.getAll()
+    );
+  }
+
   // userList: User[] = [];
 
   // ngOnInit() {
