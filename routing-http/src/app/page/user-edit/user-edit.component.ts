@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, switchMap } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
@@ -15,6 +15,8 @@ export class UserEditComponent implements OnInit {
 
   userService: UserService = inject(UserService);
 
+  router: Router = inject(Router);
+
   user: User = new User();
 
   user$: Observable<User> = this.activatedRoute.params.pipe(
@@ -27,6 +29,12 @@ export class UserEditComponent implements OnInit {
     //     respondedUser => this.user = respondedUser
     //   )
     // );
+  }
+
+  onUpdate(user: User): void {
+    this.userService.update(user).subscribe(
+      () => this.router.navigate(['/', 'user'])
+    );
   }
 
 }
