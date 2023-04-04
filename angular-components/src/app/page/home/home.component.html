@@ -1,2 +1,13 @@
 <h1>{{ componentTitle }}</h1>
-<app-product-list [productList]="products"></app-product-list>
+<button (click)="switchProductList()" class="btn btn-primary">
+  Show Product List
+</button>
+<div *ngIf="isProductsDisplayed" class="row">
+  <div class="col-12">
+    <app-product-list #list1 [productList]="products"></app-product-list>
+  </div>
+</div>
+
+<app-product-list #list2 [productList]="products"></app-product-list>
+
+<app-product-list #list3 [productList]="products"></app-product-list>

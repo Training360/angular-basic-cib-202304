@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { Product } from 'src/app/model/product';
 
 @Component({
@@ -6,6 +6,14 @@ import { Product } from 'src/app/model/product';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent {
+export class ProductListComponent implements OnInit, OnDestroy {
   @Input() productList: Product[] = [];
+
+  ngOnInit(): void {
+    console.log('ProductListComponent inited!');
+  }
+
+  ngOnDestroy(): void {
+    console.log('ProductListComponent will be destroy!');
+  }
 }
