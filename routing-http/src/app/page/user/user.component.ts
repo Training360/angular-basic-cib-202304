@@ -14,6 +14,10 @@ export class UserComponent {
 
   userList$: Observable<User[]> = this.userService.getAll();
 
+  filterPhrase: string = '';
+
+  filterKey: string = '';
+
   onDelete(user: User): void {
     this.userService.delete(user).subscribe(
       () => this.userList$ = this.userService.getAll()

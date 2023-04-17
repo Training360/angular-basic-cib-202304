@@ -10,6 +10,7 @@ import { HomeComponent } from './page/home/home.component';
 import { UserEditComponent } from './page/user-edit/user-edit.component';
 import { NavComponent } from './common/nav/nav.component';
 import { UserCreateComponent } from './page/user-create/user-create.component';
+import { FilterPipe } from './pipe/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserCreateComponent } from './page/user-create/user-create.component';
     HomeComponent,
     UserEditComponent,
     NavComponent,
-    UserCreateComponent
+    UserCreateComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

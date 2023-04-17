@@ -6,6 +6,20 @@
   </div>
 </div>
 
+<div class="row mt-3">
+  <div class="col-3">
+    <select [(ngModel)]="filterKey" class="form-control">
+      <option value="">column name</option>
+      <option value="name">name</option>
+      <option value="email">email</option>
+      <option value="category">category</option>
+    </select>
+  </div>
+  <div class="col-3">
+    <input [(ngModel)]="filterPhrase" type="text" class="form-control" placeholder="type to filter">
+  </div>
+</div>
+
 <div class="row">
   <div class="col-12">
     <table class="table">
@@ -20,7 +34,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of userList$ | async">
+        <tr *ngFor="let user of userList$ | async | filter:filterPhrase:filterKey">
           <td>{{ user.id }}</td>
           <td>{{ user.name }}</td>
           <td>{{ user.email }}</td>
