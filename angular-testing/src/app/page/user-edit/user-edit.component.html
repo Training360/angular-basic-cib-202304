@@ -1,0 +1,30 @@
+<div *ngIf="user$ | async as currentUser" class="row">
+  <div class="col-6 offset-3">
+    <form #userForm="ngForm" (ngSubmit)="onUpdate(currentUser)">
+      <div class="form-group">
+        <label for="">Name</label>
+        <input [pattern]="namePattern" [(ngModel)]="currentUser.name" name="name" type="text" class="form-control">
+        <div *ngIf="userForm.controls['name']?.invalid" class="error-message">
+          The name must be 2 characters long.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Email</label>
+        <input email [(ngModel)]="currentUser.email" name="email" type="email" class="form-control">
+        <div *ngIf="userForm.controls['email']?.invalid" class="error-message">
+          Email address is not valid.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Category</label>
+        <input pattern="^[A-Z][A-Za-z]{1,9}$" [(ngModel)]="currentUser.category" name="category" type="text" class="form-control">
+        <div *ngIf="userForm.controls['category']?.invalid" class="error-message">
+          The name must be 2 characters long.
+        </div>
+      </div>
+      <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary mt-3">
+        <i class="fa fa-save"></i> update
+      </button>
+    </form>
+  </div>
+</div>

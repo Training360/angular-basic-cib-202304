@@ -1,0 +1,55 @@
+<div class="row">
+  <div class="col-12">
+    <button routerLink="/user/create" class="btn btn-success">
+      Add new User
+    </button>
+  </div>
+</div>
+
+<div class="row mt-3">
+  <div class="col-3">
+    <select [(ngModel)]="filterKey" class="form-control">
+      <option value="">column name</option>
+      <option value="name">name</option>
+      <option value="email">email</option>
+      <option value="category">category</option>
+    </select>
+  </div>
+  <div class="col-3">
+    <input [(ngModel)]="filterPhrase" type="text" class="form-control" placeholder="type to filter">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th (click)="onOrder(col.key)" *ngFor="let col of columns">
+            <i *ngIf="col.key === orderColumn && orderDirection === 1" class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+            <i *ngIf="col.key === orderColumn && orderDirection === -1" class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+            {{ col.title }}
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of userList$ | async | filter:filterPhrase:filterKey | order:orderColumn:orderDirection">
+          <td *ngFor="let col of columns">
+            {{ user[col.key] }}
+          </td>
+          <td>
+            <div class="btn-group">
+              <button [routerLink]="['/', 'user', 'edit', user.id]" class="btn btn-info">
+                <i class="fa fa-edit"></i>
+              </button>
+              <button (click)="onDelete(user)" class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
