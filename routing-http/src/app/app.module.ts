@@ -11,6 +11,7 @@ import { UserEditComponent } from './page/user-edit/user-edit.component';
 import { NavComponent } from './common/nav/nav.component';
 import { UserCreateComponent } from './page/user-create/user-create.component';
 import { FilterPipe } from './pipe/filter.pipe';
+import { OrderPipe } from './pipe/order.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { FilterPipe } from './pipe/filter.pipe';
     UserEditComponent,
     NavComponent,
     UserCreateComponent,
-    FilterPipe
+    FilterPipe,
+    OrderPipe
   ],
   imports: [
     BrowserModule,
