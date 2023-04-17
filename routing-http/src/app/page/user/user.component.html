@@ -25,21 +25,19 @@
     <table class="table">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Category</th>
-          <th>BIO</th>
+          <th (click)="onOrder(col.key)" *ngFor="let col of columns">
+            <i *ngIf="col.key === orderColumn && orderDirection === 1" class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+            <i *ngIf="col.key === orderColumn && orderDirection === -1" class="fa fa-sort-amount-desc" aria-hidden="true"></i>
+            {{ col.title }}
+          </th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let user of userList$ | async | filter:filterPhrase:filterKey">
-          <td>{{ user.id }}</td>
-          <td>{{ user.name }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.category }}</td>
-          <td>{{ user.bio }}</td>
+        <tr *ngFor="let user of userList$ | async | filter:filterPhrase:filterKey | order:orderColumn:orderDirection">
+          <td *ngFor="let col of columns">
+            {{ user[col.key] }}
+          </td>
           <td>
             <div class="btn-group">
               <button [routerLink]="['/', 'user', 'edit', user.id]" class="btn btn-info">

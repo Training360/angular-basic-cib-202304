@@ -1,0 +1,12 @@
+table.table {
+  thead {
+    th {
+      cursor: pointer;
+      transition: all 0.3;
+      user-select: none;
+      &:hover {
+        background-color: aliceblue;
+      }
+    }
+  }
+}
