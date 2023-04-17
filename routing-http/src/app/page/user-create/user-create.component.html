@@ -1,1 +1,16 @@
-<p>user-create works!</p>
+<div class="row">
+  <div class="col-6 offset-3">
+    <form [formGroup]="formGroup" (ngSubmit)="onCreate()">
+      <div *ngFor="let controlName of formControlNames" class="form-group">
+        <label for="">{{ controlName | titlecase }}</label>
+        <input [formControlName]="controlName" [name]="controlName" type="text" class="form-control">
+        <div *ngIf="formGroup.controls[controlName]?.invalid" class="error-message">
+          The name must be 2 characters long.
+        </div>
+      </div>
+      <button [disabled]="formGroup.invalid" type="submit" class="btn btn-primary mt-3">
+        <i class="fa fa-save"></i> update
+      </button>
+    </form>
+  </div>
+</div>
