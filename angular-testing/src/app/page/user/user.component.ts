@@ -1,4 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { ConfigService, ITableColumn } from 'src/app/service/config.service';
@@ -14,6 +15,8 @@ export class UserComponent {
   userService: UserService = inject(UserService);
 
   configService: ConfigService = inject(ConfigService);
+
+  router: Router = inject(Router);
 
   columns: ITableColumn[] = this.configService.userColumns;
 
@@ -31,6 +34,10 @@ export class UserComponent {
     this.userService.delete(user).subscribe(
       () => this.userList$ = this.userService.getAll()
     );
+  }
+  
+  onEdit(user: User): void {
+    this.router.navigate(['/', 'user', 'edit', user.id]);
   }
 
   onOrder(col: string): void {

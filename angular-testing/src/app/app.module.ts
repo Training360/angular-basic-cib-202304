@@ -12,6 +12,7 @@ import { NavComponent } from './common/nav/nav.component';
 import { UserCreateComponent } from './page/user-create/user-create.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { OrderPipe } from './pipe/order.pipe';
+import { DataTableComponent } from './common/data-table/data-table.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OrderPipe } from './pipe/order.pipe';
     NavComponent,
     UserCreateComponent,
     FilterPipe,
-    OrderPipe
+    OrderPipe,
+    DataTableComponent
   ],
   imports: [
     BrowserModule,
