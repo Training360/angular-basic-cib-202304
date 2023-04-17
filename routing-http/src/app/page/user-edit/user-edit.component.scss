@@ -1,0 +1,12 @@
+input.ng-dirty.ng-invalid {
+  background-color: rgb(214, 144, 144);
+}
+
+.form-group {
+  margin-top: 1em;
+}
+
+.form-group .error-message {
+  color: red;
+  font-style: italic;
+}

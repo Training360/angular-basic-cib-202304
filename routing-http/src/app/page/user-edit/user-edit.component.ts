@@ -11,6 +11,8 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class UserEditComponent implements OnInit {
 
+  namePattern: string = '^[A-Z][A-Űa-Ű ]{1,20}$';
+
   activatedRoute: ActivatedRoute = inject(ActivatedRoute);
 
   userService: UserService = inject(UserService);
