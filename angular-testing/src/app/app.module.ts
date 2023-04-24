@@ -13,6 +13,7 @@ import { UserCreateComponent } from './page/user-create/user-create.component';
 import { FilterPipe } from './pipe/filter.pipe';
 import { OrderPipe } from './pipe/order.pipe';
 import { DataTableComponent } from './common/data-table/data-table.component';
+import { FibonacciPipe } from './pipe/fibonacci.pipe';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DataTableComponent } from './common/data-table/data-table.component';
     UserCreateComponent,
     FilterPipe,
     OrderPipe,
-    DataTableComponent
+    DataTableComponent,
+    FibonacciPipe
   ],
   imports: [
     BrowserModule,

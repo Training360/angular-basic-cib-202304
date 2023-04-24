@@ -24,12 +24,16 @@
               {{ col.title }}
             </th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let row of list$ | async | filter:filterPhrase:filterKey | order:orderColumn:orderDirection">
             <td *ngFor="let col of columns">
               {{ row[col.key] }}
+            </td>
+            <td>
+              {{ row.id % 20 | fibonacci }}
             </td>
             <td>
               <div class="btn-group">
